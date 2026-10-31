@@ -203,21 +203,21 @@ export const EventWizard: React.FC = () => {
           <button
             type="button"
             onClick={() => handlePresetSelect('wedding')}
-            className="px-3 py-1.5 bg-white/[0.08] hover:bg-violet-600/30 border border-white/10 hover:border-violet-400/50 text-white rounded-xl transition-all font-semibold cursor-pointer"
+            className="px-3 py-1.5 bg-white/8 hover:bg-violet-600/30 border border-white/10 hover:border-violet-400/50 text-white rounded-xl transition-all font-semibold cursor-pointer"
           >
             💒 Royal Wedding
           </button>
           <button
             type="button"
             onClick={() => handlePresetSelect('birthday')}
-            className="px-3 py-1.5 bg-white/[0.08] hover:bg-violet-600/30 border border-white/10 hover:border-violet-400/50 text-white rounded-xl transition-all font-semibold cursor-pointer"
+            className="px-3 py-1.5 bg-white/8 hover:bg-violet-600/30 border border-white/10 hover:border-violet-400/50 text-white rounded-xl transition-all font-semibold cursor-pointer"
           >
             🎂 Kids Birthday
           </button>
           <button
             type="button"
             onClick={() => handlePresetSelect('community')}
-            className="px-3 py-1.5 bg-white/[0.08] hover:bg-violet-600/30 border border-white/10 hover:border-violet-400/50 text-white rounded-xl transition-all font-semibold cursor-pointer"
+            className="px-3 py-1.5 bg-white/8 hover:bg-violet-600/30 border border-white/10 hover:border-violet-400/50 text-white rounded-xl transition-all font-semibold cursor-pointer"
           >
             🎪 Community Fest
           </button>
@@ -226,7 +226,7 @@ export const EventWizard: React.FC = () => {
 
       {/* Stepper Progress Indicator */}
       <div className="flex items-center justify-between mb-8 relative">
-        <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-[2px] bg-white/10 z-0" />
+        <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-0.5 bg-white/10 z-0" />
         {[
           { num: 1, title: 'Basics' },
           { num: 2, title: 'Scale & Budget' },
@@ -240,7 +240,7 @@ export const EventWizard: React.FC = () => {
               }}
               className={`w-10 h-10 rounded-2xl flex items-center justify-center font-bold text-xs transition-all cursor-pointer ${
                 step === s.num
-                  ? 'bg-gradient-to-r from-violet-600 to-fuchsia-600 text-white shadow-xl shadow-violet-600/50 ring-4 ring-violet-500/20 scale-110'
+                  ? 'bg-linear-to-r from-violet-600 to-fuchsia-600 text-white shadow-xl shadow-violet-600/50 ring-4 ring-violet-500/20 scale-110'
                   : step > s.num
                   ? 'bg-emerald-500 text-white'
                   : 'bg-[#120D26] border border-white/20 text-stone-400'
@@ -278,7 +278,7 @@ export const EventWizard: React.FC = () => {
         {/* Step 1: Basics */}
         {step === 1 && (
           <div className="space-y-6 animate-fade-in">
-            <div className="border-b border-white/[0.08] pb-3">
+            <div className="border-b border-white/8 pb-3">
               <h2 className="text-xl font-bold text-white font-display">
                 Step 1: Event Essentials
               </h2>
@@ -294,7 +294,7 @@ export const EventWizard: React.FC = () => {
                 placeholder="e.g. Maya & Rohan's Royal Wedding"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full text-sm px-4 py-3 rounded-xl bg-white/[0.05] border border-white/15 text-white placeholder:text-stone-500 focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30 transition-all"
+                className="w-full text-sm px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white placeholder:text-stone-500 focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30 transition-all"
               />
               {errors.name && <p className="text-xs text-rose-400 mt-1.5 font-semibold">{errors.name}</p>}
             </div>
@@ -316,7 +316,7 @@ export const EventWizard: React.FC = () => {
                     className={`p-4 rounded-2xl border text-left transition-all cursor-pointer ${
                       formData.type === item.key
                         ? 'bg-violet-600/30 border-violet-400 shadow-lg shadow-violet-600/30'
-                        : 'bg-white/[0.03] border-white/10 hover:border-white/20'
+                        : 'bg-white/3 border-white/10 hover:border-white/20'
                     }`}
                   >
                     <span className="text-2xl block mb-1">{item.icon}</span>
@@ -336,7 +336,7 @@ export const EventWizard: React.FC = () => {
                   type="date"
                   value={formData.date}
                   onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                  className="w-full text-sm px-4 py-3 rounded-xl bg-white/[0.05] border border-white/15 text-white focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30 transition-all"
+                  className="w-full text-sm px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30 transition-all"
                 />
                 {errors.date && <p className="text-xs text-rose-400 mt-1.5 font-semibold">{errors.date}</p>}
               </div>
@@ -350,7 +350,7 @@ export const EventWizard: React.FC = () => {
                   placeholder="e.g. Mumbai, Maharashtra"
                   value={formData.city}
                   onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                  className="w-full text-sm px-4 py-3 rounded-xl bg-white/[0.05] border border-white/15 text-white placeholder:text-stone-500 focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30 transition-all"
+                  className="w-full text-sm px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white placeholder:text-stone-500 focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30 transition-all"
                 />
                 {errors.city && <p className="text-xs text-rose-400 mt-1.5 font-semibold">{errors.city}</p>}
               </div>
@@ -365,7 +365,7 @@ export const EventWizard: React.FC = () => {
                   type="time"
                   value={formData.startTime}
                   onChange={(e) => setFormData({ ...formData, startTime: e.target.value })}
-                  className="w-full text-sm px-4 py-3 rounded-xl bg-white/[0.05] border border-white/15 text-white focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
+                  className="w-full text-sm px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
                 />
               </div>
 
@@ -377,7 +377,7 @@ export const EventWizard: React.FC = () => {
                   type="time"
                   value={formData.endTime}
                   onChange={(e) => setFormData({ ...formData, endTime: e.target.value })}
-                  className="w-full text-sm px-4 py-3 rounded-xl bg-white/[0.05] border border-white/15 text-white focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
+                  className="w-full text-sm px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
                 />
               </div>
             </div>
@@ -387,7 +387,7 @@ export const EventWizard: React.FC = () => {
         {/* Step 2: Scale & Budget */}
         {step === 2 && (
           <div className="space-y-6 animate-fade-in">
-            <div className="border-b border-white/[0.08] pb-3">
+            <div className="border-b border-white/8 pb-3">
               <h2 className="text-xl font-bold text-white font-display">
                 Step 2: Guests & Financial Limits
               </h2>
@@ -407,7 +407,7 @@ export const EventWizard: React.FC = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, guestCount: parseInt(e.target.value) || 0 })
                   }
-                  className="w-full text-sm px-4 py-3 rounded-xl bg-white/[0.05] border border-white/15 text-white focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
+                  className="w-full text-sm px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
                 />
                 {errors.guestCount && (
                   <p className="text-xs text-rose-400 mt-1.5 font-semibold">{errors.guestCount}</p>
@@ -445,7 +445,7 @@ export const EventWizard: React.FC = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, budget: parseInt(e.target.value) || 0 })
                   }
-                  className="w-full text-sm px-4 py-3 rounded-xl bg-white/[0.05] border border-white/15 text-white font-bold font-mono focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
+                  className="w-full text-sm px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white font-bold font-mono focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
                 />
                 {errors.budget && <p className="text-xs text-rose-400 mt-1.5 font-semibold">{errors.budget}</p>}
               </div>
@@ -472,7 +472,7 @@ export const EventWizard: React.FC = () => {
 
             {/* Live Financial Partition Preview */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-              <div className="p-3.5 bg-white/[0.03] border border-white/10 rounded-2xl text-xs space-y-1">
+              <div className="p-3.5 bg-white/3 border border-white/10 rounded-2xl text-xs space-y-1">
                 <span className="text-[10px] text-stone-400 uppercase font-bold tracking-wider block">
                   Spend Per Guest
                 </span>
@@ -484,7 +484,7 @@ export const EventWizard: React.FC = () => {
               </div>
 
               <div className="p-3.5 bg-emerald-950/30 border border-emerald-500/30 rounded-2xl text-xs space-y-1">
-                <span className="text-[10px] text-emerald-300 uppercase font-bold tracking-wider block flex items-center gap-1">
+                <span className="text-[10px] text-emerald-300 uppercase font-bold tracking-wider flex items-center gap-1">
                   <span>🛡️</span> 5% Contingency Buffer
                 </span>
                 <span className="text-sm font-bold text-emerald-400 font-mono block">
@@ -507,7 +507,7 @@ export const EventWizard: React.FC = () => {
         {/* Step 3: Preferences */}
         {step === 3 && (
           <div className="space-y-5 animate-fade-in">
-            <div className="border-b border-white/[0.08] pb-3">
+            <div className="border-b border-white/8 pb-3">
               <h2 className="text-xl font-bold text-white font-display">
                 Step 3: Vision, Styling & Accommodations
               </h2>
@@ -523,7 +523,7 @@ export const EventWizard: React.FC = () => {
                 placeholder="e.g. Marigold & Royal Blue, Palace Heritage, Boho Sunset, Neon Cyberpunk..."
                 value={formData.themePreferences}
                 onChange={(e) => setFormData({ ...formData, themePreferences: e.target.value })}
-                className="w-full text-sm px-4 py-3 rounded-xl bg-white/[0.05] border border-white/15 text-white placeholder:text-stone-500 focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
+                className="w-full text-sm px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white placeholder:text-stone-500 focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
               />
             </div>
 
@@ -539,7 +539,7 @@ export const EventWizard: React.FC = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, dietaryRequirements: e.target.value })
                   }
-                  className="w-full text-sm px-4 py-3 rounded-xl bg-white/[0.05] border border-white/15 text-white placeholder:text-stone-500 focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
+                  className="w-full text-sm px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white placeholder:text-stone-500 focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
                 />
               </div>
 
@@ -554,7 +554,7 @@ export const EventWizard: React.FC = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, accessibilityRequirements: e.target.value })
                   }
-                  className="w-full text-sm px-4 py-3 rounded-xl bg-white/[0.05] border border-white/15 text-white placeholder:text-stone-500 focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
+                  className="w-full text-sm px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white placeholder:text-stone-500 focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
                 />
               </div>
             </div>
@@ -571,7 +571,7 @@ export const EventWizard: React.FC = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, culturalPreferences: e.target.value })
                   }
-                  className="w-full text-sm px-4 py-3 rounded-xl bg-white/[0.05] border border-white/15 text-white placeholder:text-stone-500 focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
+                  className="w-full text-sm px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white placeholder:text-stone-500 focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
                 />
               </div>
 
@@ -586,7 +586,7 @@ export const EventWizard: React.FC = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, specialInstructions: e.target.value })
                   }
-                  className="w-full text-sm px-4 py-3 rounded-xl bg-white/[0.05] border border-white/15 text-white placeholder:text-stone-500 focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
+                  className="w-full text-sm px-4 py-3 rounded-xl bg-white/5 border border-white/15 text-white placeholder:text-stone-500 focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
                 />
               </div>
             </div>
@@ -596,15 +596,15 @@ export const EventWizard: React.FC = () => {
         {/* Step 4: Review & Generate */}
         {step === 4 && (
           <div className="space-y-6 animate-fade-in">
-            <div className="border-b border-white/[0.08] pb-3">
+            <div className="border-b border-white/8 pb-3">
               <h2 className="text-xl font-bold text-white font-display">
                 Step 4: Review & Generate Plan
               </h2>
               <p className="text-xs text-stone-400 mt-1">Review event specifications before plan synthesis</p>
             </div>
 
-            <div className="p-5 bg-white/[0.04] rounded-2xl border border-white/10 space-y-4">
-              <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
+            <div className="p-5 bg-white/4 rounded-2xl border border-white/10 space-y-4">
+              <div className="flex items-center justify-between pb-3 border-b border-white/8">
                 <span className="font-extrabold text-lg sm:text-xl text-white font-display">
                   {formData.name}
                 </span>
@@ -635,7 +635,7 @@ export const EventWizard: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-5 bg-gradient-to-r from-violet-950/40 via-purple-950/30 to-indigo-950/40 rounded-2xl border border-violet-500/30 text-xs space-y-2.5">
+            <div className="p-5 bg-linear-to-r from-violet-950/40 via-purple-950/30 to-indigo-950/40 rounded-2xl border border-violet-500/30 text-xs space-y-2.5">
               <p className="font-bold text-violet-200 flex items-center gap-2">
                 <span>🤖</span> What CelebrateAI will generate for you:
               </p>
@@ -650,7 +650,7 @@ export const EventWizard: React.FC = () => {
         )}
 
         {/* Wizard Controls */}
-        <div className="flex items-center justify-between pt-6 mt-8 border-t border-white/[0.08]">
+        <div className="flex items-center justify-between pt-6 mt-8 border-t border-white/8">
           <div>
             {step > 1 && (
               <Button variant="secondary" onClick={handleBack} disabled={isGenerating}>

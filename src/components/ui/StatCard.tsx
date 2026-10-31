@@ -70,7 +70,7 @@ export const StatCard: React.FC<StatCardProps> = ({
 
       {icon && (
         <div
-          className={`w-12 h-12 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0 ${iconBox[accentColor]}`}
+          className={`w-12 h-12 rounded-2xl flex items-center justify-center text-2xl shrink-0 ${iconBox[accentColor]}`}
         >
           {icon}
         </div>

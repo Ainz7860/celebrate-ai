@@ -84,8 +84,8 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
             alt={event.name}
             className="w-full h-full object-cover object-center scale-105 group-hover:scale-100 transition-transform duration-1000 filter brightness-50"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0C081E]/95 via-[#120D2C]/85 to-[#0C081E]/90" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0C081E] via-transparent to-black/40" />
+          <div className="absolute inset-0 bg-linear-to-r from-[#0C081E]/95 via-[#120D2C]/85 to-[#0C081E]/90" />
+          <div className="absolute inset-0 bg-linear-to-t from-[#0C081E] via-transparent to-black/40" />
         </div>
 
         <div className="relative z-10 p-7 sm:p-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
@@ -122,7 +122,7 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             {/* Glowing Countdown Ring Card */}
-            <div className="glass-panel rounded-2xl px-6 py-4 border border-white/20 text-center min-w-[150px] shadow-xl backdrop-blur-xl bg-[#120D28]/80">
+            <div className="glass-panel rounded-2xl px-6 py-4 border border-white/20 text-center min-w-37.5 shadow-xl backdrop-blur-xl bg-[#120D28]/80">
               <span className="block text-3xl sm:text-4xl font-black font-display text-gradient-gold">
                 {daysLeft > 0 ? daysLeft : daysLeft === 0 ? 'Today!' : 'Completed'}
               </span>
@@ -194,26 +194,26 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
           <div className="flex items-center gap-2 flex-wrap">
             <button
               onClick={handleExportMarkdown}
-              className="px-3 py-1.5 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-xs text-stone-300 font-semibold transition-all flex items-center gap-1.5"
+              className="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs text-stone-300 font-semibold transition-all flex items-center gap-1.5"
             >
               <span>📄</span> Export MD
             </button>
             <button
               onClick={handleExportJSON}
-              className="px-3 py-1.5 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-xs text-stone-300 font-semibold transition-all flex items-center gap-1.5"
+              className="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs text-stone-300 font-semibold transition-all flex items-center gap-1.5"
             >
               <span>💾</span> Export JSON
             </button>
             <button
               onClick={triggerPrintPlan}
-              className="px-3 py-1.5 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 text-xs text-stone-300 font-semibold transition-all flex items-center gap-1.5"
+              className="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs text-stone-300 font-semibold transition-all flex items-center gap-1.5"
             >
               <span>🖨️</span> Print Dossier
             </button>
           </div>
         </div>
 
-        <p className="text-sm text-stone-300 leading-relaxed italic bg-white/[0.02] p-4 rounded-2xl border border-white/5 font-serif">
+        <p className="text-sm text-stone-300 leading-relaxed italic bg-white/2 p-4 rounded-2xl border border-white/5 font-serif">
           &ldquo;{plan.eventSummary}&rdquo;
         </p>
       </div>
@@ -252,7 +252,7 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
             </div>
 
             {/* Contingency Buffer Callout */}
-            <div className="p-4 rounded-2xl bg-gradient-to-r from-emerald-950/40 to-[#0F1E19]/60 border border-emerald-500/30 flex items-center justify-between shadow-lg">
+            <div className="p-4 rounded-2xl bg-linear-to-r from-emerald-950/40 to-[#0F1E19]/60 border border-emerald-500/30 flex items-center justify-between shadow-lg">
               <div className="flex items-center gap-3">
                 <span className="w-9 h-9 rounded-xl bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-lg">
                   🛡️
@@ -280,7 +280,7 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
                 {budget.categories.slice(0, 3).map((cat) => (
                   <div
                     key={cat.id}
-                    className="p-3 rounded-xl bg-white/[0.03] border border-white/5 flex items-center justify-between text-xs"
+                    className="p-3 rounded-xl bg-white/3 border border-white/5 flex items-center justify-between text-xs"
                   >
                     <span className="font-semibold text-stone-200">{cat.name}</span>
                     <span className="font-bold font-mono text-stone-300">
@@ -313,7 +313,7 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
               {timeline.tasks.slice(0, 4).map((task) => (
                 <div
                   key={task.id}
-                  className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-violet-500/30 transition-all flex items-start gap-3 group"
+                  className="p-3.5 rounded-2xl bg-white/3 border border-white/5 hover:border-violet-500/30 transition-all flex items-start gap-3 group"
                 >
                   <input
                     type="checkbox"
@@ -383,7 +383,7 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
               {vendors.slice(0, 3).map((vendor) => (
                 <div
                   key={vendor.id}
-                  className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 space-y-2 hover:border-violet-500/30 transition-all"
+                  className="p-4 rounded-2xl bg-white/3 border border-white/5 space-y-2 hover:border-violet-500/30 transition-all"
                 >
                   <div className="flex items-center justify-between">
                     <span className="font-bold text-sm text-white capitalize">
@@ -435,7 +435,7 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
                 alt="Celebration Decor"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
               <div className="absolute bottom-3 left-4 right-4">
                 <span className="text-[10px] text-amber-300 uppercase font-bold tracking-wider block">
                   {media.inspirationImages[0]?.category || 'Atmosphere'}
@@ -447,7 +447,7 @@ export const OverviewTab: React.FC<OverviewTabProps> = ({
             </div>
 
             {/* Guest Summary Card */}
-            <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/5 flex items-center justify-between">
+            <div className="p-4 rounded-2xl bg-white/3 border border-white/5 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <span className="w-9 h-9 rounded-xl bg-violet-500/20 border border-violet-500/30 flex items-center justify-center text-base">
                   👥

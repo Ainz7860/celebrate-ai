@@ -131,7 +131,7 @@ export const VendorsTab: React.FC<VendorsTabProps> = ({
             <Card key={vendor.id} padding="md" hoverEffect className="flex flex-col justify-between">
               <div>
                 {/* Card Header */}
-                <div className="flex items-start justify-between gap-4 pb-4 border-b border-white/[0.08]">
+                <div className="flex items-start justify-between gap-4 pb-4 border-b border-white/8">
                   <div>
                     <span className="text-[11px] font-bold text-violet-300 uppercase tracking-widest block mb-1">
                       {vendor.category}
@@ -169,8 +169,8 @@ export const VendorsTab: React.FC<VendorsTabProps> = ({
 
                   {/* Questions to Ask */}
                   {vendor.questionsToAsk && (
-                    <div className="p-4 bg-gradient-to-r from-violet-950/40 via-purple-950/30 to-indigo-950/40 rounded-2xl border border-violet-500/30">
-                      <span className="font-bold text-violet-200 block text-xs flex items-center gap-2 mb-1.5">
+                    <div className="p-4 bg-linear-to-r from-violet-950/40 via-purple-950/30 to-indigo-950/40 rounded-2xl border border-violet-500/30">
+                      <span className="font-bold text-violet-200 text-xs flex items-center gap-2 mb-1.5">
                         <span>💬</span> Key Vetting Questions:
                       </span>
                       <p className="text-stone-300 text-[11px] whitespace-pre-line leading-relaxed">
@@ -190,7 +190,7 @@ export const VendorsTab: React.FC<VendorsTabProps> = ({
               </div>
 
               {/* Card Footer / Financials & Edit */}
-              <div className="mt-6 pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs">
+              <div className="mt-6 pt-4 border-t border-white/8 flex items-center justify-between text-xs">
                 <div className="space-y-0.5">
                   <span className="text-[11px] text-stone-400 block font-semibold">Target Allocation</span>
                   <span className="font-extrabold text-white text-sm font-mono">
@@ -242,7 +242,7 @@ export const VendorsTab: React.FC<VendorsTabProps> = ({
                 placeholder="e.g. Royal Rajputana Caterers"
                 defaultValue={editingVendor.vendorName}
                 onChange={(e) => (editingVendor.vendorName = e.target.value)}
-                className="w-full text-sm px-4 py-2.5 bg-white/[0.05] border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
+                className="w-full text-sm px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
               />
             </div>
 
@@ -258,7 +258,7 @@ export const VendorsTab: React.FC<VendorsTabProps> = ({
                   onChange={(e) =>
                     (editingVendor.quotedPrice = Number(e.target.value) || undefined)
                   }
-                  className="w-full text-sm px-4 py-2.5 bg-white/[0.05] border border-white/15 rounded-xl text-white font-mono font-bold focus:outline-none focus:border-violet-400"
+                  className="w-full text-sm px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white font-mono font-bold focus:outline-none focus:border-violet-400"
                 />
               </div>
 
@@ -289,7 +289,7 @@ export const VendorsTab: React.FC<VendorsTabProps> = ({
                 placeholder="e.g. Contract #492, Phone: +91 9876543210"
                 defaultValue={editingVendor.contractReference}
                 onChange={(e) => (editingVendor.contractReference = e.target.value)}
-                className="w-full text-sm px-4 py-2.5 bg-white/[0.05] border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
+                className="w-full text-sm px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
               />
             </div>
 
@@ -301,11 +301,11 @@ export const VendorsTab: React.FC<VendorsTabProps> = ({
                 rows={3}
                 defaultValue={editingVendor.notes}
                 onChange={(e) => (editingVendor.notes = e.target.value)}
-                className="w-full text-sm px-4 py-2.5 bg-white/[0.05] border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
+                className="w-full text-sm px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
               />
             </div>
 
-            <div className="flex justify-end gap-3 pt-4 border-t border-white/[0.08]">
+            <div className="flex justify-end gap-3 pt-4 border-t border-white/8">
               <Button variant="secondary" onClick={() => setEditingVendor(null)}>
                 Cancel
               </Button>
@@ -369,7 +369,7 @@ export const VendorsTab: React.FC<VendorsTabProps> = ({
                 min="0"
                 value={newEstBudget}
                 onChange={(e) => setNewEstBudget(Number(e.target.value) || 0)}
-                className="w-full text-sm px-4 py-2.5 bg-white/[0.05] border border-white/15 rounded-xl text-white font-mono focus:outline-none focus:border-violet-400"
+                className="w-full text-sm px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white font-mono focus:outline-none focus:border-violet-400"
               />
             </div>
           </div>
@@ -383,7 +383,7 @@ export const VendorsTab: React.FC<VendorsTabProps> = ({
               placeholder="e.g. Royal Decorators"
               value={newVendorName}
               onChange={(e) => setNewVendorName(e.target.value)}
-              className="w-full text-sm px-4 py-2.5 bg-white/[0.05] border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
+              className="w-full text-sm px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
             />
           </div>
 
@@ -396,7 +396,7 @@ export const VendorsTab: React.FC<VendorsTabProps> = ({
               placeholder="What deliverables are expected from this vendor?"
               value={newRequirements}
               onChange={(e) => setNewRequirements(e.target.value)}
-              className="w-full text-sm px-4 py-2.5 bg-white/[0.05] border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
+              className="w-full text-sm px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
             />
           </div>
 
@@ -409,11 +409,11 @@ export const VendorsTab: React.FC<VendorsTabProps> = ({
               placeholder="Questions to ask during vetting..."
               value={newQuestions}
               onChange={(e) => setNewQuestions(e.target.value)}
-              className="w-full text-sm px-4 py-2.5 bg-white/[0.05] border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
+              className="w-full text-sm px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
             />
           </div>
 
-          <div className="flex justify-end gap-3 pt-4 border-t border-white/[0.08]">
+          <div className="flex justify-end gap-3 pt-4 border-t border-white/8">
             <Button variant="secondary" onClick={() => setIsAddModalOpen(false)}>
               Cancel
             </Button>

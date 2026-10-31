@@ -134,7 +134,7 @@ export const EventDashboard: React.FC<EventDashboardProps> = ({ eventId }) => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
       {/* Sub-header Breadcrumb & Autosave Status Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-white/[0.08]">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-white/8">
         <div className="flex items-center gap-2.5 text-xs text-stone-400 font-medium">
           <Link href="/" className="hover:text-white transition-colors">
             Celebrations
@@ -181,8 +181,8 @@ export const EventDashboard: React.FC<EventDashboardProps> = ({ eventId }) => {
               onClick={() => setActiveTab(tab.id)}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-bold text-xs whitespace-nowrap transition-all duration-300 cursor-pointer ${
                 isActive
-                  ? 'bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-600/40 border border-white/20 scale-[1.02]'
-                  : 'text-stone-400 hover:text-white hover:bg-white/[0.05]'
+                  ? 'bg-linear-to-r from-violet-600 to-indigo-600 text-white shadow-lg shadow-violet-600/40 border border-white/20 scale-[1.02]'
+                  : 'text-stone-400 hover:text-white hover:bg-white/5'
               }`}
             >
               <span className="text-sm">{tab.icon}</span>
@@ -190,7 +190,7 @@ export const EventDashboard: React.FC<EventDashboardProps> = ({ eventId }) => {
               {tab.badge && (
                 <span
                   className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                    tab.badgeColor ? tab.badgeColor : isActive ? 'bg-white/20 text-white' : 'bg-white/[0.08] text-stone-300'
+                    tab.badgeColor ? tab.badgeColor : isActive ? 'bg-white/20 text-white' : 'bg-white/8 text-stone-300'
                   }`}
                 >
                   {tab.badge}

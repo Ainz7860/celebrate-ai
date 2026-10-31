@@ -155,7 +155,7 @@ export const TimelineTab: React.FC<TimelineTabProps> = ({
             placeholder="Search milestone tasks..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full text-xs px-4 py-2.5 bg-white/[0.05] border border-white/15 rounded-xl text-white placeholder:text-stone-500 focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
+            className="w-full text-xs px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white placeholder:text-stone-500 focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
           />
         </div>
 
@@ -213,7 +213,7 @@ export const TimelineTab: React.FC<TimelineTabProps> = ({
                 key={task.id}
                 className={`p-4 sm:p-5 rounded-2xl border transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 ${
                   isDone
-                    ? 'border-white/5 bg-white/[0.02] opacity-60'
+                    ? 'border-white/5 bg-white/2 opacity-60'
                     : task.status === 'overdue'
                     ? 'border-rose-500/40 bg-rose-950/20 shadow-lg shadow-rose-950/30'
                     : 'glass-panel hover:border-violet-500/40'
@@ -260,7 +260,7 @@ export const TimelineTab: React.FC<TimelineTabProps> = ({
                 </div>
 
                 {/* Right Meta & Actions */}
-                <div className="flex items-center gap-4 sm:flex-shrink-0 text-xs pl-9 sm:pl-0">
+                <div className="flex items-center gap-4 sm:shrink-0 text-xs pl-9 sm:pl-0">
                   <div className="text-right">
                     <span className="block font-bold text-white font-mono">{task.deadline}</span>
                     <span
@@ -286,7 +286,7 @@ export const TimelineTab: React.FC<TimelineTabProps> = ({
 
                   <button
                     onClick={() => onDeleteTask(task.id)}
-                    className="text-stone-500 hover:text-rose-400 p-2 rounded-lg hover:bg-white/[0.05] transition-colors cursor-pointer"
+                    className="text-stone-500 hover:text-rose-400 p-2 rounded-lg hover:bg-white/5 transition-colors cursor-pointer"
                     title="Delete task"
                   >
                     ✕
@@ -315,7 +315,7 @@ export const TimelineTab: React.FC<TimelineTabProps> = ({
               placeholder="e.g. Schedule venue walk-through with florist"
               value={newTaskName}
               onChange={(e) => setNewTaskName(e.target.value)}
-              className="w-full text-sm px-4 py-2.5 bg-white/[0.05] border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
+              className="w-full text-sm px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
               required
             />
           </div>
@@ -329,7 +329,7 @@ export const TimelineTab: React.FC<TimelineTabProps> = ({
                 type="date"
                 value={newTaskDeadline}
                 onChange={(e) => setNewTaskDeadline(e.target.value)}
-                className="w-full text-sm px-4 py-2.5 bg-white/[0.05] border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
+                className="w-full text-sm px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
                 required
               />
             </div>
@@ -385,11 +385,11 @@ export const TimelineTab: React.FC<TimelineTabProps> = ({
               placeholder="Provide instructions, contacts, or requirements for this task..."
               value={newTaskDescription}
               onChange={(e) => setNewTaskDescription(e.target.value)}
-              className="w-full text-sm px-4 py-2.5 bg-white/[0.05] border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
+              className="w-full text-sm px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
             />
           </div>
 
-          <div className="flex justify-end gap-3 pt-4 border-t border-white/[0.08]">
+          <div className="flex justify-end gap-3 pt-4 border-t border-white/8">
             <Button variant="secondary" onClick={() => setIsAddModalOpen(false)}>
               Cancel
             </Button>

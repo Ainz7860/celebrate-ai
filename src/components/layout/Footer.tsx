@@ -6,10 +6,10 @@ import React from 'react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="border-t border-white/[0.08] bg-[#070510]/80 backdrop-blur-xl py-10 text-stone-400 text-xs">
+    <footer className="border-t border-white/8 bg-[#070510]/80 backdrop-blur-xl py-10 text-stone-400 text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
         <div className="flex items-center gap-3">
-          <span className="w-7 h-7 rounded-xl bg-gradient-to-tr from-violet-600 to-fuchsia-600 flex items-center justify-center text-white text-xs font-bold shadow-md shadow-violet-600/30">
+          <span className="w-7 h-7 rounded-xl bg-linear-to-tr from-violet-600 to-fuchsia-600 flex items-center justify-center text-white text-xs font-bold shadow-md shadow-violet-600/30">
             ✨
           </span>
           <div>

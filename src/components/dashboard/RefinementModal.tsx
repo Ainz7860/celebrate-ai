@@ -122,7 +122,7 @@ export const RefinementModal: React.FC<RefinementModalProps> = ({
       onClose={onClose}
       title={
         <div className="flex items-center gap-2.5">
-          <span className="w-8 h-8 rounded-xl bg-gradient-to-tr from-amber-500 to-rose-500 flex items-center justify-center text-white text-base shadow-lg shadow-orange-500/30">
+          <span className="w-8 h-8 rounded-xl bg-linear-to-tr from-amber-500 to-rose-500 flex items-center justify-center text-white text-base shadow-lg shadow-orange-500/30">
             ⚡
           </span>
           <span className="text-white">Adaptive Replanning Cockpit</span>
@@ -144,7 +144,7 @@ export const RefinementModal: React.FC<RefinementModalProps> = ({
                 placeholder="e.g. Budget cut by 15%, guest count increased by 50, or heavy rain forecast requiring indoor contingency..."
                 value={requestText}
                 onChange={(e) => setRequestText(e.target.value)}
-                className="w-full text-sm px-4 py-3 bg-white/[0.05] border border-white/15 rounded-2xl text-white placeholder:text-stone-500 focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30 leading-relaxed"
+                className="w-full text-sm px-4 py-3 bg-white/5 border border-white/15 rounded-2xl text-white placeholder:text-stone-500 focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30 leading-relaxed"
               />
             </div>
 
@@ -159,7 +159,7 @@ export const RefinementModal: React.FC<RefinementModalProps> = ({
                     key={idx}
                     type="button"
                     onClick={() => setRequestText(scen.text)}
-                    className="text-xs px-3 py-2 rounded-xl border border-white/10 bg-white/[0.04] hover:bg-violet-600/25 hover:border-violet-400/50 hover:text-white transition-all text-stone-300 font-semibold cursor-pointer"
+                    className="text-xs px-3 py-2 rounded-xl border border-white/10 bg-white/4 hover:bg-violet-600/25 hover:border-violet-400/50 hover:text-white transition-all text-stone-300 font-semibold cursor-pointer"
                   >
                     {scen.label}
                   </button>
@@ -174,8 +174,8 @@ export const RefinementModal: React.FC<RefinementModalProps> = ({
               </div>
             )}
 
-            <div className="p-4 bg-gradient-to-r from-violet-950/40 via-purple-950/30 to-indigo-950/40 border border-violet-500/30 rounded-2xl text-xs space-y-1.5">
-              <span className="font-bold text-violet-200 block text-sm flex items-center gap-1.5">
+            <div className="p-4 bg-linear-to-r from-violet-950/40 via-purple-950/30 to-indigo-950/40 border border-violet-500/30 rounded-2xl text-xs space-y-1.5">
+              <span className="font-bold text-violet-200 text-sm flex items-center gap-1.5">
                 <span>🛡️</span> Guaranteed Commitment Shield:
               </span>
               <p className="text-stone-300 leading-relaxed text-[11px]">
@@ -184,7 +184,7 @@ export const RefinementModal: React.FC<RefinementModalProps> = ({
               </p>
             </div>
 
-            <div className="flex justify-end gap-3 pt-4 border-t border-white/[0.08]">
+            <div className="flex justify-end gap-3 pt-4 border-t border-white/8">
               <Button variant="secondary" onClick={onClose}>
                 Cancel
               </Button>
@@ -205,7 +205,7 @@ export const RefinementModal: React.FC<RefinementModalProps> = ({
         {proposal && (
           <div className="space-y-5 animate-fade-in">
             {/* Overall Rationale */}
-            <div className="p-4 bg-white/[0.04] rounded-2xl border border-white/10 text-xs space-y-2">
+            <div className="p-4 bg-white/4 rounded-2xl border border-white/10 text-xs space-y-2">
               <span className="font-bold text-violet-300 uppercase tracking-wider block text-[11px]">
                 AI Strategic Analysis
               </span>
@@ -249,7 +249,7 @@ export const RefinementModal: React.FC<RefinementModalProps> = ({
                           ? 'border-rose-500/40 bg-rose-950/20'
                           : isChecked
                           ? 'border-violet-500/40 bg-violet-950/20'
-                          : 'border-white/10 bg-white/[0.03]'
+                          : 'border-white/10 bg-white/3'
                       }`}
                     >
                       <input
@@ -297,7 +297,7 @@ export const RefinementModal: React.FC<RefinementModalProps> = ({
             </div>
 
             {/* Action Bar */}
-            <div className="flex items-center justify-between pt-4 border-t border-white/[0.08]">
+            <div className="flex items-center justify-between pt-4 border-t border-white/8">
               <Button
                 variant="ghost"
                 size="sm"

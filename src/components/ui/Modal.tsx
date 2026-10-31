@@ -62,11 +62,11 @@ export const Modal: React.FC<ModalProps> = ({
         className={`relative w-full ${maxWidthStyles[maxWidth]} bg-[#120D26]/95 backdrop-blur-2xl rounded-3xl shadow-2xl shadow-violet-950/80 border border-white/15 p-6 sm:p-7 z-10 my-8 transition-all animate-scale-in max-h-[90vh] flex flex-col text-stone-100 overflow-hidden`}
       >
         {/* Top ambient highlight */}
-        <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-violet-400/50 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-violet-400/50 to-transparent" />
 
         {/* Header */}
         {(title || subtitle) && (
-          <div className="flex items-start justify-between pb-4 mb-4 border-b border-white/10 flex-shrink-0">
+          <div className="flex items-start justify-between pb-4 mb-4 border-b border-white/10 shrink-0">
             <div>
               {title && (
                 <h2 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight font-display">
@@ -77,7 +77,7 @@ export const Modal: React.FC<ModalProps> = ({
             </div>
             <button
               onClick={onClose}
-              className="text-stone-400 hover:text-white rounded-xl p-2 hover:bg-white/[0.08] transition-colors cursor-pointer"
+              className="text-stone-400 hover:text-white rounded-xl p-2 hover:bg-white/8 transition-colors cursor-pointer"
               aria-label="Close dialog"
             >
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

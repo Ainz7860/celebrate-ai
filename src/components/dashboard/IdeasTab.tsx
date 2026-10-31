@@ -105,7 +105,7 @@ export const IdeasTab: React.FC<IdeasTabProps> = ({
             <button
               key={color.name}
               onClick={() => handleCopyHex(color.hex)}
-              className="group p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-violet-500/40 transition-all text-left cursor-pointer"
+              className="group p-4 rounded-2xl bg-white/3 border border-white/5 hover:border-violet-500/40 transition-all text-left cursor-pointer"
             >
               <div
                 className="h-16 rounded-xl shadow-lg border border-white/10 group-hover:scale-102 transition-transform"
@@ -150,7 +150,7 @@ export const IdeasTab: React.FC<IdeasTabProps> = ({
                   alt={img.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#100C22] via-[#100C22]/30 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#100C22] via-[#100C22]/30 to-transparent" />
                 <span className="absolute top-3 left-3 px-2.5 py-1 rounded-lg text-[10px] font-bold bg-[#100C22]/80 backdrop-blur-md text-amber-300 border border-amber-500/30">
                   {img.category}
                 </span>
@@ -187,7 +187,7 @@ export const IdeasTab: React.FC<IdeasTabProps> = ({
               className={`text-xs px-3.5 py-2 rounded-xl border font-bold transition-all flex items-center gap-2 cursor-pointer ${
                 onlySaved
                   ? 'bg-amber-500/20 text-amber-200 border-amber-500/50 shadow-lg shadow-amber-500/20'
-                  : 'bg-white/[0.05] text-stone-300 border-white/10 hover:border-white/20'
+                  : 'bg-white/5 text-stone-300 border-white/10 hover:border-white/20'
               }`}
             >
               <span>⭐</span>
@@ -240,7 +240,7 @@ export const IdeasTab: React.FC<IdeasTabProps> = ({
                   className="flex flex-col justify-between"
                 >
                   <div>
-                    <div className="flex items-start justify-between gap-2 pb-3 mb-3 border-b border-white/[0.08]">
+                    <div className="flex items-start justify-between gap-2 pb-3 mb-3 border-b border-white/8">
                       <span className="text-[10px] font-bold text-violet-300 uppercase tracking-widest px-2.5 py-1 rounded-lg bg-violet-600/20 border border-violet-500/30">
                         {idea.category}
                       </span>
@@ -265,7 +265,7 @@ export const IdeasTab: React.FC<IdeasTabProps> = ({
                     </p>
 
                     {idea.rationale && (
-                      <div className="p-3 bg-white/[0.03] rounded-xl text-[11px] text-stone-300 border border-white/5 leading-relaxed">
+                      <div className="p-3 bg-white/3 rounded-xl text-[11px] text-stone-300 border border-white/5 leading-relaxed">
                         <span className="font-bold text-violet-300">Why this works: </span>
                         {idea.rationale}
                       </div>
@@ -273,7 +273,7 @@ export const IdeasTab: React.FC<IdeasTabProps> = ({
                   </div>
 
                   {idea.estimatedCost && (
-                    <div className="mt-5 pt-3 border-t border-white/[0.08] flex items-center justify-between text-xs text-stone-400">
+                    <div className="mt-5 pt-3 border-t border-white/8 flex items-center justify-between text-xs text-stone-400">
                       <span className="text-[11px] font-semibold">Cost Impact:</span>
                       <span className="font-bold text-emerald-300 text-xs font-mono">
                         {idea.estimatedCost}
@@ -304,7 +304,7 @@ export const IdeasTab: React.FC<IdeasTabProps> = ({
               placeholder="e.g. Polaroid Guestbook Station"
               value={newTitle}
               onChange={(e) => setNewTitle(e.target.value)}
-              className="w-full text-sm px-4 py-2.5 bg-white/[0.05] border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
+              className="w-full text-sm px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
               required
             />
           </div>
@@ -342,7 +342,7 @@ export const IdeasTab: React.FC<IdeasTabProps> = ({
                 placeholder="e.g. ₹5,000 for film & cameras"
                 value={newEstCost}
                 onChange={(e) => setNewEstCost(e.target.value)}
-                className="w-full text-sm px-4 py-2.5 bg-white/[0.05] border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
+                className="w-full text-sm px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
               />
             </div>
           </div>
@@ -356,7 +356,7 @@ export const IdeasTab: React.FC<IdeasTabProps> = ({
               placeholder="Describe the experience and how it will unfold..."
               value={newDescription}
               onChange={(e) => setNewDescription(e.target.value)}
-              className="w-full text-sm px-4 py-2.5 bg-white/[0.05] border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
+              className="w-full text-sm px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
               required
             />
           </div>
@@ -370,11 +370,11 @@ export const IdeasTab: React.FC<IdeasTabProps> = ({
               placeholder="e.g. Leaves a physical memory book for the couple"
               value={newRationale}
               onChange={(e) => setNewRationale(e.target.value)}
-              className="w-full text-sm px-4 py-2.5 bg-white/[0.05] border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
+              className="w-full text-sm px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
             />
           </div>
 
-          <div className="flex justify-end gap-3 pt-4 border-t border-white/[0.08]">
+          <div className="flex justify-end gap-3 pt-4 border-t border-white/8">
             <Button variant="secondary" onClick={() => setIsAddModalOpen(false)}>
               Cancel
             </Button>

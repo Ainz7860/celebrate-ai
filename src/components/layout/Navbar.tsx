@@ -32,17 +32,17 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#080514]/75 backdrop-blur-2xl border-b border-white/[0.08] shadow-2xl shadow-black/40">
+    <header className="sticky top-0 z-40 w-full bg-[#080514]/75 backdrop-blur-2xl border-b border-white/8 shadow-2xl shadow-black/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
         {/* Brand */}
         <div className="flex items-center gap-6">
           <Link href="/" className="flex items-center gap-3 group">
-            <span className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-violet-600 via-fuchsia-600 to-amber-500 flex items-center justify-center text-white shadow-lg shadow-violet-600/40 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 border border-white/20">
+            <span className="w-10 h-10 rounded-2xl bg-linear-to-tr from-violet-600 via-fuchsia-600 to-amber-500 flex items-center justify-center text-white shadow-lg shadow-violet-600/40 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 border border-white/20">
               ✨
             </span>
             <div>
               <span className="font-black text-xl tracking-tight flex items-center gap-1.5 font-display text-white">
-                Celebrate<span className="bg-gradient-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">AI</span>
+                Celebrate<span className="bg-linear-to-r from-violet-400 to-fuchsia-400 bg-clip-text text-transparent">AI</span>
               </span>
               <span className="text-[10px] uppercase font-bold tracking-widest text-violet-300/70 block -mt-1">
                 Luxury Event Planner
@@ -58,7 +58,7 @@ export const Navbar: React.FC = () => {
               </span>
               <select
                 aria-label="Select an event"
-                className="text-xs bg-white/[0.05] hover:bg-white/[0.08] border border-white/15 rounded-xl px-3 py-1.5 text-stone-200 max-w-[200px] truncate focus:ring-2 focus:ring-violet-500/50 focus:border-violet-400 transition-colors cursor-pointer"
+                className="text-xs bg-white/5 hover:bg-white/8 border border-white/15 rounded-xl px-3 py-1.5 text-stone-200 max-w-50 truncate focus:ring-2 focus:ring-violet-500/50 focus:border-violet-400 transition-colors cursor-pointer"
                 onChange={(e) => {
                   if (e.target.value) {
                     router.push(`/events/${e.target.value}`);
@@ -105,7 +105,7 @@ export const Navbar: React.FC = () => {
 
             {showDemoMenu && (
               <div className="absolute right-0 mt-2 w-72 bg-[#140E2D]/95 backdrop-blur-2xl rounded-2xl shadow-2xl shadow-violet-950/80 border border-white/15 py-2 z-50 animate-scale-in">
-                <div className="px-4 py-2 border-b border-white/[0.08] text-[10px] font-bold text-violet-400 uppercase tracking-widest">
+                <div className="px-4 py-2 border-b border-white/8 text-[10px] font-bold text-violet-400 uppercase tracking-widest">
                   ⭐ Instant Demo Celebrations
                 </div>
                 {DEMO_SCENARIOS.map((demo) => (

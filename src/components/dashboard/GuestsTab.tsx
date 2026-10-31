@@ -137,7 +137,7 @@ export const GuestsTab: React.FC<GuestsTabProps> = ({
             placeholder="Search guests or dietary needs..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full text-xs px-4 py-2.5 bg-white/[0.05] border border-white/15 rounded-xl text-white placeholder:text-stone-500 focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
+            className="w-full text-xs px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white placeholder:text-stone-500 focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
           />
         </div>
 
@@ -171,7 +171,7 @@ export const GuestsTab: React.FC<GuestsTabProps> = ({
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
             <thead>
-              <tr className="border-b border-white/10 text-stone-400 font-bold uppercase tracking-wider text-[11px] bg-white/[0.02]">
+              <tr className="border-b border-white/10 text-stone-400 font-bold uppercase tracking-wider text-[11px] bg-white/2">
                 <th className="py-4 px-5">Guest / Family Name</th>
                 <th className="py-4 px-4">Party Size</th>
                 <th className="py-4 px-4">RSVP Status</th>
@@ -181,7 +181,7 @@ export const GuestsTab: React.FC<GuestsTabProps> = ({
                 <th className="py-4 px-5 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-white/[0.06]">
+            <tbody className="divide-y divide-white/6">
               {filteredGuests.length === 0 ? (
                 <tr>
                   <td colSpan={7} className="py-12 text-center text-stone-400">
@@ -191,7 +191,7 @@ export const GuestsTab: React.FC<GuestsTabProps> = ({
               ) : (
                 filteredGuests.map((guest) => {
                   return (
-                    <tr key={guest.id} className="hover:bg-white/[0.04] transition-colors">
+                    <tr key={guest.id} className="hover:bg-white/4 transition-colors">
                       <td className="py-4 px-5">
                         <span className="font-extrabold text-white text-sm block font-display">
                           {guest.name}
@@ -221,7 +221,7 @@ export const GuestsTab: React.FC<GuestsTabProps> = ({
                               ? 'bg-emerald-500/20 text-emerald-200 border-emerald-500/40'
                               : guest.rsvpStatus === 'declined'
                               ? 'bg-rose-500/20 text-rose-200 border-rose-500/40'
-                              : 'bg-white/[0.06] text-stone-300 border-white/10'
+                              : 'bg-white/6 text-stone-300 border-white/10'
                           }`}
                         >
                           <option value="pending" className="bg-[#120D26]">Pending</option>
@@ -271,7 +271,7 @@ export const GuestsTab: React.FC<GuestsTabProps> = ({
                       <td className="py-4 px-5 text-right">
                         <button
                           onClick={() => onDeleteGuest(guest.id)}
-                          className="text-stone-500 hover:text-rose-400 p-2 rounded-lg hover:bg-white/[0.05] transition-colors cursor-pointer"
+                          className="text-stone-500 hover:text-rose-400 p-2 rounded-lg hover:bg-white/5 transition-colors cursor-pointer"
                           title="Delete guest"
                         >
                           ✕
@@ -304,7 +304,7 @@ export const GuestsTab: React.FC<GuestsTabProps> = ({
                 placeholder="e.g. Vikramaditya & Family"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full text-sm px-4 py-2.5 bg-white/[0.05] border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
+                className="w-full text-sm px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
                 required
               />
             </div>
@@ -319,7 +319,7 @@ export const GuestsTab: React.FC<GuestsTabProps> = ({
                 max="50"
                 value={attendeeCount}
                 onChange={(e) => setAttendeeCount(Math.max(1, Number(e.target.value) || 1))}
-                className="w-full text-sm px-4 py-2.5 bg-white/[0.05] border border-white/15 rounded-xl text-white font-mono focus:outline-none focus:border-violet-400"
+                className="w-full text-sm px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white font-mono focus:outline-none focus:border-violet-400"
                 required
               />
             </div>
@@ -335,7 +335,7 @@ export const GuestsTab: React.FC<GuestsTabProps> = ({
                 placeholder="e.g. guest@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full text-sm px-4 py-2.5 bg-white/[0.05] border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
+                className="w-full text-sm px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
               />
             </div>
 
@@ -348,7 +348,7 @@ export const GuestsTab: React.FC<GuestsTabProps> = ({
                 placeholder="e.g. +91 9876543210"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="w-full text-sm px-4 py-2.5 bg-white/[0.05] border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
+                className="w-full text-sm px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
               />
             </div>
           </div>
@@ -362,7 +362,7 @@ export const GuestsTab: React.FC<GuestsTabProps> = ({
               placeholder="e.g. Jain food only, severe peanut allergy, vegan..."
               value={dietaryNotes}
               onChange={(e) => setDietaryNotes(e.target.value)}
-              className="w-full text-sm px-4 py-2.5 bg-white/[0.05] border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
+              className="w-full text-sm px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
             />
           </div>
 
@@ -375,11 +375,11 @@ export const GuestsTab: React.FC<GuestsTabProps> = ({
               placeholder="e.g. Wheelchair access, elder seating, quiet lounge..."
               value={accessibilityNotes}
               onChange={(e) => setAccessibilityNotes(e.target.value)}
-              className="w-full text-sm px-4 py-2.5 bg-white/[0.05] border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
+              className="w-full text-sm px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
             />
           </div>
 
-          <div className="flex justify-end gap-3 pt-4 border-t border-white/[0.08]">
+          <div className="flex justify-end gap-3 pt-4 border-t border-white/8">
             <Button variant="secondary" onClick={() => setIsAddModalOpen(false)}>
               Cancel
             </Button>

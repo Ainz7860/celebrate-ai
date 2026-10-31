@@ -163,7 +163,7 @@ export const BudgetTab: React.FC<BudgetTabProps> = ({
                 <th className="py-3.5 px-3 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-white/[0.06]">
+            <tbody className="divide-y divide-white/6">
               {categories.map((cat) => {
                 const variance = cat.allocatedAmount - cat.actualAmount;
                 const isOver = variance < 0;
@@ -173,7 +173,7 @@ export const BudgetTab: React.FC<BudgetTabProps> = ({
                     : 0;
 
                 return (
-                  <tr key={cat.id} className="hover:bg-white/[0.04] transition-colors">
+                  <tr key={cat.id} className="hover:bg-white/4 transition-colors">
                     <td className="py-4 px-3">
                       <span className="font-extrabold text-white text-sm block font-display">
                         {cat.name}
@@ -230,7 +230,7 @@ export const BudgetTab: React.FC<BudgetTabProps> = ({
                       </span>
                     </td>
 
-                    <td className="py-4 px-3 text-stone-400 max-w-[200px] truncate" title={cat.notes}>
+                    <td className="py-4 px-3 text-stone-400 max-w-50 truncate" title={cat.notes}>
                       {cat.notes || '—'}
                     </td>
 
@@ -277,7 +277,7 @@ export const BudgetTab: React.FC<BudgetTabProps> = ({
               placeholder="e.g. Photo Booth, Special Fireworks"
               value={newCatName}
               onChange={(e) => setNewCatName(e.target.value)}
-              className="w-full text-sm px-4 py-2.5 bg-white/[0.05] border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
+              className="w-full text-sm px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/30"
               required
             />
           </div>
@@ -320,7 +320,7 @@ export const BudgetTab: React.FC<BudgetTabProps> = ({
                 min="0"
                 value={newCatAllocated}
                 onChange={(e) => setNewCatAllocated(Number(e.target.value) || 0)}
-                className="w-full text-sm px-4 py-2.5 bg-white/[0.05] border border-white/15 rounded-xl text-white font-mono focus:outline-none focus:border-violet-400"
+                className="w-full text-sm px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white font-mono focus:outline-none focus:border-violet-400"
               />
             </div>
           </div>
@@ -334,11 +334,11 @@ export const BudgetTab: React.FC<BudgetTabProps> = ({
               placeholder="e.g. Estimated based on quotes..."
               value={newCatNotes}
               onChange={(e) => setNewCatNotes(e.target.value)}
-              className="w-full text-sm px-4 py-2.5 bg-white/[0.05] border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
+              className="w-full text-sm px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white focus:outline-none focus:border-violet-400"
             />
           </div>
 
-          <div className="flex justify-end gap-3 pt-4 border-t border-white/[0.08]">
+          <div className="flex justify-end gap-3 pt-4 border-t border-white/8">
             <Button variant="secondary" onClick={() => setIsAddModalOpen(false)}>
               Cancel
             </Button>
@@ -370,13 +370,13 @@ export const BudgetTab: React.FC<BudgetTabProps> = ({
               min="1"
               value={expenseAmount}
               onChange={(e) => setExpenseAmount(Number(e.target.value) || 0)}
-              className="w-full text-sm px-4 py-2.5 bg-white/[0.05] border border-white/15 rounded-xl text-white font-mono font-bold focus:outline-none focus:border-violet-400"
+              className="w-full text-sm px-4 py-2.5 bg-white/5 border border-white/15 rounded-xl text-white font-mono font-bold focus:outline-none focus:border-violet-400"
               placeholder="Enter amount paid"
               autoFocus
             />
           </div>
 
-          <div className="flex justify-end gap-3 pt-4 border-t border-white/[0.08]">
+          <div className="flex justify-end gap-3 pt-4 border-t border-white/8">
             <Button variant="secondary" onClick={() => setExpenseModalCat(null)}>
               Cancel
             </Button>

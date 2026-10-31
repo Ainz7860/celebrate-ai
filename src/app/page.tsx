@@ -34,8 +34,8 @@ export default function HomePage() {
   return (
     <div className="relative overflow-hidden space-y-28 py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Ambient background light meshes */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-gradient-to-tr from-violet-600/30 via-fuchsia-600/20 to-amber-500/15 blur-[140px] rounded-full pointer-events-none -z-10" />
-      <div className="absolute top-[800px] right-0 w-[500px] h-[400px] bg-gradient-to-br from-cyan-500/15 via-violet-600/15 to-transparent blur-[120px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-225 h-112.5 bg-linear-to-tr from-violet-600/30 via-fuchsia-600/20 to-amber-500/15 blur-[140px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute top-200 right-0 w-125 h-100 bg-linear-to-br from-cyan-500/15 via-violet-600/15 to-transparent blur-[120px] rounded-full pointer-events-none -z-10" />
 
       {/* ─── Hero Section ────────────────────────────────────────── */}
       <section className="text-center space-y-8 pt-6 max-w-4xl mx-auto relative z-10">
@@ -48,7 +48,7 @@ export default function HomePage() {
 
         <h1 className="text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-tight font-display leading-[1.12]">
           Flawless Celebrations,{' '}
-          <span className="bg-gradient-to-r from-violet-400 via-fuchsia-300 to-amber-300 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-violet-400 via-fuchsia-300 to-amber-300 bg-clip-text text-transparent">
             Engineered by AI.
           </span>
         </h1>
@@ -88,10 +88,10 @@ export default function HomePage() {
         {/* Floating Mini Dashboard Preview */}
         <div className="pt-10 max-w-3xl mx-auto">
           <div className="glass-panel rounded-3xl p-6 border border-white/15 shadow-2xl shadow-black/80 text-left relative overflow-hidden group hover:border-violet-500/40 transition-all duration-500">
-            <div className="absolute top-0 right-0 w-80 h-40 bg-gradient-to-bl from-violet-600/20 via-fuchsia-600/10 to-transparent blur-2xl pointer-events-none" />
+            <div className="absolute top-0 right-0 w-80 h-40 bg-linear-to-bl from-violet-600/20 via-fuchsia-600/10 to-transparent blur-2xl pointer-events-none" />
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/10">
               <div className="flex items-center gap-3">
-                <span className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-violet-600 to-fuchsia-600 flex items-center justify-center text-white text-lg shadow-lg shadow-violet-500/30">
+                <span className="w-10 h-10 rounded-2xl bg-linear-to-tr from-violet-600 to-fuchsia-600 flex items-center justify-center text-white text-lg shadow-lg shadow-violet-500/30">
                   ✨
                 </span>
                 <div>
@@ -211,7 +211,7 @@ export default function HomePage() {
                 alt="Royal Wedding"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#100C1F] via-[#100C1F]/50 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#100C1F] via-[#100C1F]/50 to-transparent" />
               <div className="absolute top-4 left-4">
                 <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#100C1F]/80 backdrop-blur-md text-amber-300 border border-amber-500/30">
                   💒 Royal Wedding
@@ -264,7 +264,7 @@ export default function HomePage() {
                 alt="Magical Birthday"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#100C1F] via-[#100C1F]/50 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#100C1F] via-[#100C1F]/50 to-transparent" />
               <div className="absolute top-4 left-4">
                 <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#100C1F]/80 backdrop-blur-md text-pink-300 border border-pink-500/30">
                   🎂 Fantasy Birthday
@@ -317,7 +317,7 @@ export default function HomePage() {
                 alt="Community Festival"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#100C1F] via-[#100C1F]/50 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-[#100C1F] via-[#100C1F]/50 to-transparent" />
               <div className="absolute top-4 left-4">
                 <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#100C1F]/80 backdrop-blur-md text-emerald-300 border border-emerald-500/30">
                   🎪 Community Festival
@@ -406,7 +406,7 @@ export default function HomePage() {
                 </div>
 
                 {/* Sensory note */}
-                <div className="bg-white/[0.03] p-3 rounded-xl border border-white/5 text-xs text-stone-300 leading-relaxed font-light">
+                <div className="bg-white/3 p-3 rounded-xl border border-white/5 text-xs text-stone-300 leading-relaxed font-light">
                   {visual.inspirationImages[0]?.description}
                 </div>
               </div>
@@ -500,7 +500,7 @@ export default function HomePage() {
       </section>
 
       {/* ─── Call To Action ────────────────────────────────────────── */}
-      <section className="relative overflow-hidden rounded-3xl p-10 sm:p-14 border border-violet-500/30 bg-gradient-to-r from-violet-950/60 via-[#190F38] to-fuchsia-950/50 shadow-2xl text-center space-y-6">
+      <section className="relative overflow-hidden rounded-3xl p-10 sm:p-14 border border-violet-500/30 bg-linear-to-r from-violet-950/60 via-[#190F38] to-fuchsia-950/50 shadow-2xl text-center space-y-6">
         <div className="absolute inset-0 bg-radial-mesh-violet opacity-60 pointer-events-none" />
         <h2 className="text-3xl sm:text-5xl font-black text-white font-display tracking-tight relative z-10">
           Ready to experience the future of celebration planning?

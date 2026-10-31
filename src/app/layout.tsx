@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased scroll-smooth">
       <body className="min-h-full flex flex-col bg-[#070510] text-[#F1EDFA] font-sans selection:bg-violet-500/30 selection:text-white">
-        <Suspense fallback={<header className="h-16 bg-[#0B081A]/80 border-b border-white/[0.08]" />}>
+        <Suspense fallback={<header className="h-16 bg-[#0B081A]/80 border-b border-white/8" />}>
           <Navbar />
         </Suspense>
         <main className="flex-1">{children}</main>

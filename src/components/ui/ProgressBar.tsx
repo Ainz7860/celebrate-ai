@@ -57,7 +57,7 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
           {sublabel && <span className="font-bold text-white font-mono">{sublabel}</span>}
         </div>
       )}
-      <div className={`w-full bg-white/[0.08] rounded-full overflow-hidden p-0.5 border border-white/5 ${heights[size]}`}>
+      <div className={`w-full bg-white/8 rounded-full overflow-hidden p-0.5 border border-white/5 ${heights[size]}`}>
         <div
           className={`${colorClasses[color]} ${heights[size]} rounded-full transition-all duration-700 ease-out`}
           style={{ width: `${clamped}%` }}

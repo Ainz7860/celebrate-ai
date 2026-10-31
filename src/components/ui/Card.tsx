@@ -39,10 +39,10 @@ export const Card: React.FC<CardProps> = ({
       {...props}
     >
       {/* Top subtle highlight shimmer */}
-      <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none rounded-t-2xl" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-white/20 to-transparent pointer-events-none rounded-t-2xl" />
 
       {(title || subtitle || headerAction) && (
-        <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/[0.08] px-5 sm:px-6 pt-5 sm:pt-6">
+        <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/8 px-5 sm:px-6 pt-5 sm:pt-6">
           <div>
             {title && (
               <h3 className="text-base sm:text-lg font-bold text-white tracking-tight font-display">
@@ -58,7 +58,7 @@ export const Card: React.FC<CardProps> = ({
       <div className={paddingStyles[padding]}>{children}</div>
 
       {footer && (
-        <div className="pt-3.5 mt-4 border-t border-white/[0.08] text-xs text-stone-400 flex items-center justify-between px-5 sm:px-6 pb-4">
+        <div className="pt-3.5 mt-4 border-t border-white/8 text-xs text-stone-400 flex items-center justify-between px-5 sm:px-6 pb-4">
           {footer}
         </div>
       )}
