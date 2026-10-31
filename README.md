@@ -73,8 +73,25 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 npx vitest run
 ```
 
-### 5. Build for Production
+---
+
+## ⚡ Free 1-Click Deployment to Vercel
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FAinz7860%2Fcelebrate-ai&env=GEMINI_API_KEY,GEMINI_MODEL,GROQ_API_KEY,GROQ_MODEL&project-name=celebrate-ai&repository-name=celebrate-ai)
+
+### Option 1: Web Interface (Recommended — 100% Free)
+1. Click the **Deploy with Vercel** button above or open [vercel.com/new](https://vercel.com/new).
+2. Connect your GitHub account and select **`Ainz7860/celebrate-ai`**.
+3. In **Environment Variables**, optionally paste your `GEMINI_API_KEY` (or `GROQ_API_KEY`).
+4. Click **Deploy**. Vercel will build and provision your free `.vercel.app` URL in under 60 seconds!
+
+### Option 2: Vercel CLI
 ```bash
-npm run build
-npm start
+npx vercel login
+npx vercel --prod
 ```
+
+### Option 3: Other 100% Free Hosting Platforms
+- **Netlify**: Run `npx netlify deploy --prod --build` or import `Ainz7860/celebrate-ai` at [app.netlify.com](https://app.netlify.com).
+- **Render**: Create a free Web Service connected to `https://github.com/Ainz7860/celebrate-ai` with `npm run build` and `npm start`.
+
