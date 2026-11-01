@@ -127,41 +127,102 @@ export const AIBudgetCategorySchema = z.object({
   notes: z.string().default(''),
 });
 
-export const AITaskSchema = z.object({
-  name: z.string().min(1),
-  description: z.string().default(''),
-  daysBeforeEvent: z.number().int().min(0).max(730),
-  category: z.string().default('planning'),
-  priority: z.enum(['critical', 'high', 'medium', 'low']).default('medium'),
-  guidance: z.string().default(''),
-});
+export const AITaskSchema = z.preprocess(
+  (val) => {
+    if (typeof val === 'string') {
+      return {
+        name: val,
+        description: val,
+        daysBeforeEvent: 14,
+        category: 'planning',
+        priority: 'medium',
+      };
+    }
+    return val;
+  },
+  z.object({
+    name: z.string().min(1),
+    description: z.string().default(''),
+    daysBeforeEvent: z.number().int().min(0).max(730).default(14),
+    category: z.string().default('planning'),
+    priority: z
+      .string()
+      .default('medium')
+      .transform((val) => {
+        const clean = (val || '').toLowerCase().trim();
+        if (['critical', 'high', 'medium', 'low'].includes(clean)) {
+          return clean as 'critical' | 'high' | 'medium' | 'low';
+        }
+        return 'medium';
+      }),
+    guidance: z.string().default(''),
+  }),
+);
 
-export const AIVendorSchema = z.object({
-  category: z.string(),
-  requirements: z.string().default(''),
-  questionsToAsk: z.string().default(''),
-  comparisonCriteria: z.string().default(''),
-  estimatedBudgetPercent: z.number().min(0).max(100).default(0),
-});
+export const AIVendorSchema = z.preprocess(
+  (val) => {
+    if (typeof val === 'string') {
+      return {
+        category: 'other',
+        requirements: val,
+        questionsToAsk: '',
+        comparisonCriteria: '',
+        estimatedBudgetPercent: 5,
+      };
+    }
+    return val;
+  },
+  z.object({
+    category: z.string().default('other'),
+    requirements: z.string().default(''),
+    questionsToAsk: z.string().default(''),
+    comparisonCriteria: z.string().default(''),
+    estimatedBudgetPercent: z.number().min(0).max(100).default(0),
+  }),
+);
 
-export const AIIdeaSchema = z.object({
-  category: z.enum([
-    'theme',
-    'decoration',
-    'menu',
-    'activity',
-    'entertainment',
-    'guest-experience',
-    'cost-saving',
-    'contingency',
-    'accessibility',
-    'logistics',
-  ]),
-  title: z.string().min(1),
-  description: z.string(),
-  rationale: z.string(),
-  estimatedCost: z.string().optional(),
-});
+const VALID_IDEA_CATEGORIES = [
+  'theme',
+  'decoration',
+  'menu',
+  'activity',
+  'entertainment',
+  'guest-experience',
+  'cost-saving',
+  'contingency',
+  'accessibility',
+  'logistics',
+] as const;
+
+export const AIIdeaSchema = z.preprocess(
+  (val) => {
+    if (typeof val === 'string') {
+      return {
+        category: 'guest-experience',
+        title: val,
+        description: val,
+        rationale: 'Curated idea for your event theme and guest experience.',
+      };
+    }
+    return val;
+  },
+  z.object({
+    category: z
+      .string()
+      .default('guest-experience')
+      .transform((val) => {
+        const clean = (val || '').toLowerCase().trim().replace(/_/g, '-');
+        if (VALID_IDEA_CATEGORIES.includes(clean as any)) {
+          return clean as (typeof VALID_IDEA_CATEGORIES)[number];
+        }
+        return 'guest-experience' as (typeof VALID_IDEA_CATEGORIES)[number];
+      }),
+    title: z.string().min(1),
+    description: z.string().default(''),
+    rationale: z.string().default(''),
+    estimatedCost: z.string().optional(),
+  }),
+);
 
 export const AIGeneratedPlanSchema = z.object({
   eventSummary: z.string().min(1),
@@ -177,14 +238,23 @@ export type AIGeneratedPlan = z.infer<typeof AIGeneratedPlanSchema>;
 // ─── Refinement Schemas ───────────────────────────────────────
 
 export const AIRefinementChangeSchema = z.object({
-  section: z.enum(['budget', 'timeline', 'vendors', 'ideas', 'summary']),
-  field: z.string(),
-  recordId: z.string().optional(),
+  section: z
+    .string()
+    .default('budget')
+    .transform((val) => {
+      const clean = (val || '').toLowerCase().trim();
+      if (['budget', 'timeline', 'vendors', 'ideas', 'summary'].includes(clean)) {
+        return clean as 'budget' | 'timeline' | 'vendors' | 'ideas' | 'summary';
+      }
+      return 'budget';
+    }),
+  field: z.string().default('general'),
+  recordId: z.string().nullable().optional(),
   proposedValue: z.unknown(),
-  rationale: z.string(),
-  impactSummary: z.string(),
+  rationale: z.string().default(''),
+  impactSummary: z.string().default(''),
   isConflict: z.boolean().default(false),
-  conflictDescription: z.string().optional(),
+  conflictDescription: z.string().nullable().optional(),
 });
 
 export const AIRefinementProposalSchema = z.object({

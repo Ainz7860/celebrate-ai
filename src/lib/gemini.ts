@@ -20,7 +20,7 @@ function getAIClient(): GoogleGenAI {
 }
 
 function getModelName(): string {
-  return process.env.GEMINI_MODEL ?? 'gemini-2.0-flash';
+  return process.env.GEMINI_MODEL ?? 'gemini-3.8-flash';
 }
 
 // ─── Prompts ──────────────────────────────────────────────────
@@ -206,7 +206,7 @@ function extractJSON(text: string): unknown {
 async function callGroqAPI(prompt: string, maxTokens: number): Promise<string> {
   const apiKey = process.env.GROQ_API_KEY;
   if (!apiKey) throw new Error('GROQ_API_KEY is not configured');
-  const model = process.env.GROQ_MODEL || 'llama-3.3-70b-versatile';
+  const model = process.env.GROQ_MODEL || 'openai/gpt-oss-120b';
 
   const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
     method: 'POST',
@@ -249,29 +249,44 @@ async function callGroqAPI(prompt: string, maxTokens: number): Promise<string> {
 export async function generateEventPlan(event: EventFormData): Promise<AIGeneratedPlan> {
   const prompt = buildPlanGenerationPrompt(event);
   let text = '';
+  let lastError: unknown = null;
 
+  // 1. Prioritize Groq
   if (process.env.GROQ_API_KEY) {
-    text = await withRetry(() => callGroqAPI(prompt, 8192));
-  } else {
-    const ai = getAIClient();
-    const model = getModelName();
+    try {
+      text = await withRetry(() => callGroqAPI(prompt, 8192));
+    } catch (groqErr) {
+      console.warn('[CelebrateAI] Groq generation failed, attempting Gemini fallback:', groqErr);
+      lastError = groqErr;
+    }
+  }
 
-    const response = await withRetry(async () => {
-      return await ai.models.generateContent({
-        model,
-        contents: prompt,
-        config: {
-          temperature: 0.7,
-          maxOutputTokens: 8192,
-        },
+  // 2. Fallback to Gemini if Groq was unavailable or threw an error
+  if (!text && process.env.GEMINI_API_KEY) {
+    try {
+      const ai = getAIClient();
+      const model = getModelName();
+
+      const response = await withRetry(async () => {
+        return await ai.models.generateContent({
+          model,
+          contents: prompt,
+          config: {
+            temperature: 0.7,
+            maxOutputTokens: 8192,
+          },
+        });
       });
-    });
 
-    text = response.text || '';
+      text = response.text || '';
+    } catch (geminiErr) {
+      console.warn('[CelebrateAI] Gemini generation failed:', geminiErr);
+      if (!lastError) lastError = geminiErr;
+    }
   }
 
   if (!text) {
-    throw new Error('AI returned an empty response.');
+    throw lastError || new Error('AI returned an empty response.');
   }
 
   const raw = extractJSON(text);
@@ -294,29 +309,44 @@ export async function refineEventPlan(
 ): Promise<AIRefinementProposal> {
   const prompt = buildRefinementPrompt(event, currentPlan, refinementRequest, approvedCommitments);
   let text = '';
+  let lastError: unknown = null;
 
+  // 1. Prioritize Groq
   if (process.env.GROQ_API_KEY) {
-    text = await withRetry(() => callGroqAPI(prompt, 4096));
-  } else {
-    const ai = getAIClient();
-    const model = getModelName();
+    try {
+      text = await withRetry(() => callGroqAPI(prompt, 4096));
+    } catch (groqErr) {
+      console.warn('[CelebrateAI] Groq refinement failed, attempting Gemini fallback:', groqErr);
+      lastError = groqErr;
+    }
+  }
 
-    const response = await withRetry(async () => {
-      return await ai.models.generateContent({
-        model,
-        contents: prompt,
-        config: {
-          temperature: 0.5,
-          maxOutputTokens: 4096,
-        },
+  // 2. Fallback to Gemini if Groq was unavailable or threw an error
+  if (!text && process.env.GEMINI_API_KEY) {
+    try {
+      const ai = getAIClient();
+      const model = getModelName();
+
+      const response = await withRetry(async () => {
+        return await ai.models.generateContent({
+          model,
+          contents: prompt,
+          config: {
+            temperature: 0.5,
+            maxOutputTokens: 4096,
+          },
+        });
       });
-    });
 
-    text = response.text || '';
+      text = response.text || '';
+    } catch (geminiErr) {
+      console.warn('[CelebrateAI] Gemini refinement failed:', geminiErr);
+      if (!lastError) lastError = geminiErr;
+    }
   }
 
   if (!text) {
-    throw new Error('AI returned an empty response.');
+    throw lastError || new Error('AI returned an empty response.');
   }
 
   const raw = extractJSON(text);
@@ -327,5 +357,5 @@ export async function refineEventPlan(
 // ─── Credential Check ─────────────────────────────────────────
 
 export function isAIConfigured(): boolean {
-  return !!(process.env.GEMINI_API_KEY || process.env.GROQ_API_KEY);
+  return !!(process.env.GROQ_API_KEY || process.env.GEMINI_API_KEY);
 }
